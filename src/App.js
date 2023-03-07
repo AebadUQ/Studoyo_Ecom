@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 
+
+import React from "react";
+import EcomCard from './components/EcomCard'
+import { Row, Col } from "antd";
 function App() {
+  const data = [
+    { id: 1, title: 'Astor Sofa Set in Brown Air Leatherette', description: "The Astor Sofa Set is a stylish and comfortable furniture set that is upholstered in brown air leatherette.", price: 1200 },
+  
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+   <>
+      {data.map((val) => (
+        <EcomCard title={val.title} description={val.description} price={val.price}>Card content</EcomCard>
+        
+        ))}
+    
+        </>
+ 
+
+
+
+
   );
 }
 
