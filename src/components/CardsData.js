@@ -7,7 +7,7 @@ const Cardsdata = [
         address: "North Indian, Biryani, Mughlai",
         price: 350,
         rating: "3.8",
-        qnty: 0
+        qnty: 4
     },
     {
         id: 2,
