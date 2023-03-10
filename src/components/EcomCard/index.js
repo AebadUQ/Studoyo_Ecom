@@ -1,67 +1,64 @@
-import { Button, Card, Grid, Typography, Row, Col, Divider, Skeleton } from 'antd';
-import { Colors } from '../../constant/theme';
-import { useDispatch } from 'react-redux'
-import React, { useState } from 'react'
-import { ADD } from '../../redux/actions/action';
-import CardsData from '../../constant/CardsData';
+import React, { useState } from "react";
+import {  Card, Typography, Row, Divider, Skeleton,Image ,Button} from "antd";
+
+import { Colors } from "../../constant/theme";
+import { useDispatch } from "react-redux";
+import { ADD } from "../../redux/actions/action";
 const { Meta } = Card;
-
-const EcomCard = ({
-  element
-}) => {
-
-  const [data, setData] = useState(CardsData)
-  const dispatch = useDispatch()
-  const send = (e) => {
-    console.log(e)
-    dispatch(ADD(e))
-
-  }
-  console.log(element)
+const EcomCard = ({ element }) => {
   const [loading, setLoading] = useState(true);
-
-  setTimeout(() => setLoading(false), 1000); // hide skeleton after 2 seconds
-
+  const dispatch = useDispatch();
+  const send = (e) => {
+    dispatch(ADD(e));
+  };
+  //Setting timeout to simulate loading state before rendering data from an API in the future
+  setTimeout(() => setLoading(false), 1000);
   return (
     <Skeleton loading={loading} active>
       <Card
         style={{
-          width: 350,
-
+          width: 280,
+          textAlign: "left",
+          margin: "1rem 0rem",
         }}
         cover={
-          <img
-            alt="example"
-            src={element?.imgdata}
-            width={200}
-            height={250}
-
-          />
+          <Image alt="card_image" src={element?.imgdata} width={"100%"} height={200} preview={false}/>
         }
-
       >
-        <Meta
-          title={element?.title}
+        <Meta title={element?.title} />
+        <Row align={"middle"}>
+          <Typography.Text
+            strong
+            style={{
+              color: Colors?.primary,
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}
+          >
+            {"$" + element?.price}
+          </Typography.Text>
+          <Divider type="vertical" style={{ borderColor:Colors?.black}} />
+          <Typography.Text
+            strong
+            style={{ color: Colors?.secondary, fontSize: "18px" }}
+          >
+            {"10%" + " off"}
+          </Typography.Text>
+          <Divider type="vertical" style={{ borderColor: Colors?.black }} />
+          <Typography.Text
+            strong
+            style={{
+              color: Colors?.primary,
+              fontSize: "12px",
+              fontWeight: "bold",
+            }}
+            delete
+          >
+            {"$" + element?.price}
+          </Typography.Text>
 
-        />
-
-
-        <Typography.Text strong style={{ color: Colors?.primary, fontSize: '18px', fontWeight: 'bold' }} >
-          {"$" + element?.price}
-        </Typography.Text>
-        <Divider type="vertical" style={{ borderColor: 'black' }} />
-        <Typography.Text strong style={{ color: '#2da143', fontSize: '18px', fontWeight: 'bold' }}>
-          {"10%" + " off"}
-        </Typography.Text>
-        <Divider type="vertical" style={{ borderColor: 'black' }} />
-
-        <Typography.Text strong style={{ color: Colors?.primary, fontSize: '12px', fontWeight: 'bold' }} delete>
-          {"$" + element?.price}
-        </Typography.Text>
-
-        <Typography.Paragraph>
-          {element?.description}
-        </Typography.Paragraph>
+          <Typography.Paragraph>{element?.description}</Typography.Paragraph>
+        </Row>
         <Button
           type="primary"
           size="large"
