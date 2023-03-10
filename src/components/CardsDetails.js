@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Typography,Image  } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {  useParams,useNavigate } from 'react-router';
+import { DELETE ,DECQUANTITY} from '../redux/actions/action';
 const CardsDetails = () => {
     const { id } = useParams()
+    const navigate = useNavigate();
+
     const [data, setData] = useState([])
     const getdata = useSelector((state) => state?.cardReducer?.carts)
     const compare = () => {
@@ -17,7 +19,18 @@ const CardsDetails = () => {
     }
     useEffect(() => {
         compare()
+      
     }, [id])
+
+    const dispatch=useDispatch()
+    const del=(id)=>{
+        dispatch(DELETE(id))
+        navigate('/');
+        
+    }
+    // const quantityDec=(item)=>{
+    //     dispatch(DECQUANTITY(item))
+    // }
     return (
         <>
 
@@ -34,9 +47,11 @@ const CardsDetails = () => {
   <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12}>
     <Typography.Title>{ele?.title}</Typography.Title>
     <Typography.Paragraph>{ele?.description}</Typography.Paragraph>
-    <p>Price:{ele?.price}</p>
+    <p>Price:{ele?.price}</p><p>Quan:{ele?.qnty}</p>
     <p>Total</p>
-    <p>Remove: <DeleteOutlined /></p>
+    <button onClick={()=>del(ele?.id)}>remove</button>
+    {/* <button onClick={()=>quantityDec(ele)}>sub</button> */}
+    
   </Col>
 </Row>
 
