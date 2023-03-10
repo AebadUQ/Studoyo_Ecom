@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import CardsData from './CardsData'
-import EcomCard from './EcomCard'
+import CardsData from '../../constant/CardsData';
+import EcomCard from '../../components/EcomCard';
 import { Row, Col } from 'antd'
-const Cards = () => {
+const Home = () => {
     const [data, setData] = useState(CardsData)
     return (
         <Row gutter={[20, 20]} justify={"center"} >
@@ -20,4 +20,4 @@ const Cards = () => {
     )
 }
 
-export default Cards
+export default Home

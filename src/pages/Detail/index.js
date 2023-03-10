@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Row, Col, Typography, Image } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router';
-import { DELETE, DECQUANTITY, INCQUANTITY } from '../redux/actions/action';
+import { DELETE, DECQUANTITY, INCQUANTITY } from '../../redux/actions/action';
 const CardsDetails = () => {
     const { id } = useParams()
     const navigate = useNavigate();

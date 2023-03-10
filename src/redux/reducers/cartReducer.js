@@ -4,16 +4,19 @@ const INIT_STATE = {
 };
 export const cardReducer = (state = INIT_STATE, action) => {
   switch (action?.type) {
-    case "ADD_CART":
+     case "ADD_CART":
       const newItem = action.payload;
       const itemExists = state.carts.some(item => item.id === newItem.id);
 
       if (itemExists) {
         return state;
       } else {
+        const updatedCarts = [...state.carts, newItem];
+        const updatedTotal = updatedCarts.reduce((acc, item) => acc + item.price * item.qnty, 0);
         return {
           ...state,
-          carts: [...state.carts, newItem]
+          carts: updatedCarts,
+          total: updatedTotal
         };
       }
     case "REMOVE_CART":
