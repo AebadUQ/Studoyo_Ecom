@@ -5,7 +5,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'antd';
-import { DELETE } from '../redux/actions/action';
+import { DELETE } from "../redux/actions/action";
 const { Title, Paragraph, Text } = Typography;
 
 const HorizontalMenu = () => {

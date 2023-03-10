@@ -3,7 +3,7 @@ import { Colors } from '../../constant/theme';
 import { useDispatch } from 'react-redux'
 import React, { useState } from 'react'
 import { ADD } from '../../redux/actions/action';
-import CardsData from '../CardsData';
+import CardsData from '../../constant/CardsData';
 const { Meta } = Card;
 
 const EcomCard = ({
