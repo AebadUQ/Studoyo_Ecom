@@ -73,7 +73,7 @@ const Cardsdata = [
         id: 8,
         title: "East Urban Home Spray Paint Design",
         description: "Customized canvas wall Art as decoration for living room, bedroom, bathroom, dining room, kitchen etc ",
-        imgdata: "https://b.zmtcdn.com/data/pictures/3/18514413/0a17b72e9fec52a3ca736f4c2ea3646f_o2_featured_v2.jpg",
+        imgdata: "https://dtkp6g0samjql.cloudfront.net/uploads/photo/file/11876699/gallery_hero_il_fullxfull.362281044_d6fa.jpg",
         address: "Tea, Coffee, Shake, Beverages",
         price: 100,
         rating: "3.2",
