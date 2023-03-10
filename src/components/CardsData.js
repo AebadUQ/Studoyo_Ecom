@@ -7,7 +7,7 @@ const Cardsdata = [
         address: "North Indian, Biryani, Mughlai",
         price: 350,
         rating: "3.8",
-        qnty: 4
+        qnty: 1
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ const Cardsdata = [
         address: "Street Food",
         price: 25,
         rating: "3.9",
-        qnty: 0
+        qnty: 1
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ const Cardsdata = [
         address: "Pizza, Fast Food, Pasta",
         price: 70,
         rating: "4.2",
-        qnty: 0
+        qnty: 1
     },
     {
         id: 4,
@@ -37,7 +37,7 @@ const Cardsdata = [
         address: "Momos",
         price: 70,
         rating: "3.8",
-        qnty: 0
+        qnty: 1
     },
     {
         id: 5,
@@ -47,7 +47,7 @@ const Cardsdata = [
         address: "North Indian",
         price: 210,
         rating: "4.0",
-        qnty: 0
+        qnty: 1
     },
     {
         id: 6,
@@ -57,7 +57,7 @@ const Cardsdata = [
         address: "Wraps FastFood, Chines",
         price: 100,
         rating: "3.8",
-        qnty: 0
+        qnty: 1
     },
     {
         id: 7,
@@ -67,7 +67,7 @@ const Cardsdata = [
         address: "North Indian, Fast Food",
         price: 300,
         rating: "3.8",
-        qnty: 0
+        qnty: 1
     },
     {
         id: 8,
@@ -77,7 +77,7 @@ const Cardsdata = [
         address: "Tea, Coffee, Shake, Beverages",
         price: 100,
         rating: "3.2",
-        qnty: 0
+        qnty: 1
     },
 
 ];
