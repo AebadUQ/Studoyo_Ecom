@@ -1,4 +1,13 @@
-import { Menu, Dropdown, Badge, Drawer, Typography, Image, Button,Divider } from "antd";
+import {
+  Menu,
+  Dropdown,
+  Badge,
+  Drawer,
+  Typography,
+  Image,
+  Button,
+  Divider,
+} from "antd";
 import {
   HomeOutlined,
   UserOutlined,
@@ -25,6 +34,13 @@ const TotalHeading = styled.p`
   color: ${Colors?.black};
   font-weight: 500;
 `;
+const LogoName = styled.p`
+  color: ${Colors?.black};
+  font-weight: 500;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+`;
 const { Title, Paragraph, Text } = Typography;
 
 const HorizontalMenu = () => {
@@ -45,11 +61,11 @@ const HorizontalMenu = () => {
         <Row style={{ display: "flex", flexDirection: "column" }}>
           {getdata?.map((e) => {
             return (
-              <Row style={{ backgroundColor: "white" ,padding:'1rem'}}>
+              <Row style={{ backgroundColor: "white", padding: "1rem" }}>
                 <Col xs={10} sm={10} md={10} lg={10} xl={10} xxl={10}>
                   <Image
                     src={e.imgdata}
-                    style={{ width: "100%", objectFit: "cover",height:125 }}
+                    style={{ width: "100%", objectFit: "cover", height: 125 }}
                     preview={false}
                   />
                 </Col>
@@ -66,42 +82,44 @@ const HorizontalMenu = () => {
 
                   <Row justify={"space-between"}>
                     <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
-                    <Subheading>price: ${e?.price}</Subheading>
-
+                      <Subheading>price: ${e?.price}</Subheading>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
-                    <Subheading> quantity: {e?.qnty}</Subheading>
-                  
+                      <Subheading> quantity: {e?.qnty}</Subheading>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
-                    <Button onClick={() => navigate(`/cart/${e?.id}`)}   style={{
-            border: '1px solid #8538ed',
-            color:'#8538ed',
-            borderRadius: 4,
-           
-          }}>
-                      View
-                    </Button>
-
+                      <Button
+                        onClick={() => navigate(`/cart/${e?.id}`)}
+                        style={{
+                          border: "1px solid #8538ed",
+                          color: "#8538ed",
+                          borderRadius: 4,
+                        }}
+                      >
+                        View
+                      </Button>
                     </Col>
-                    <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12} >
-                    <Button onClick={() => del(e?.id)} icon={<DeleteFilled style={{fontSize:22,color:'red'}} />} style={{border:'0px'}}/>
-                    
-                  
-                
-                  
+                    <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
+                      <Button
+                        onClick={() => del(e?.id)}
+                        icon={
+                          <DeleteFilled
+                            style={{ fontSize: 22, color: "red" }}
+                          />
+                        }
+                        style={{ border: "0px" }}
+                      />
                     </Col>
-                  
                   </Row>
                 </Col>
               </Row>
             );
           })}
-          <Divider/>
+          <Divider />
           <Row justify={"end"}>
-          <TotalHeading>Total ${total}</TotalHeading>
+            <TotalHeading>Total ${total}</TotalHeading>
           </Row>
-          <Divider/> 
+          <Divider />
         </Row>
       ) : (
         <Paragraph>Your Studoyo Cart is empty</Paragraph>
@@ -122,13 +140,21 @@ const HorizontalMenu = () => {
       <Menu
         mode="horizontal"
         style={{
-          background: "linear-gradient(to left, #8538ed, #c4a6f8)",
-          color: "white",
+          backgroundColor: "white",
+          color: "#8538ed",
         }}
       >
-        <Menu.Item key="home">Home</Menu.Item>
-        <Menu.Item key="about">About Us</Menu.Item>
-        <Menu.Item key="settings">Settings</Menu.Item>
+        <Menu.Item key="home">
+          <LogoName
+            style={{
+              background: "linear-gradient(to right, #8538ed, #00c9ff)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Studoyo Ecom
+          </LogoName>
+        </Menu.Item>
         <Menu.Item
           key="cart"
           icon={
@@ -141,7 +167,7 @@ const HorizontalMenu = () => {
               }}
             >
               <ShoppingCartOutlined
-                style={{ fontSize: "22px", color: "white" }}
+                style={{ fontSize: "22px", color: "#8538ed" }}
               />
             </Badge>
           }
@@ -150,7 +176,17 @@ const HorizontalMenu = () => {
         ></Menu.Item>
       </Menu>
       <Drawer
-        title="Studoyo Ecom"
+        title={
+          <LogoName
+            style={{
+              background: "linear-gradient(to right, #8538ed, #00c9ff)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Studoyo Ecom
+          </LogoName>
+        }
         placement="right"
         closable={false}
         onClose={onClose}
