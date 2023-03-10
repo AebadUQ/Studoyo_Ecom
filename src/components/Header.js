@@ -5,41 +5,29 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'antd';
-import { CheckOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { DELETE } from '../redux/actions/action';
 const { Title, Paragraph, Text } = Typography;
 
 const HorizontalMenu = () => {
   const navigate = useNavigate();
-  const [price, setPrice] = useState(0)
-console.log(price)
-  const getdata = useSelector((state) => state?.cardReducer?.carts);
 
+  const getdata = useSelector((state) => state?.cardReducer?.carts);
+  const total = useSelector((state) => state.cardReducer.total);
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch()
-    useEffect(() => {
 
-    total()
-  }, [getdata])
   const del = (id) => {
     dispatch(DELETE(id))
   }
 
 
-  const total = () => {
-    let price = 0;
-    getdata?.map((ele, id) => {
-      price = ele?.price + price;
-    })
-    setPrice(price)
-  }
+
   const cartMenu = (
     <>
 
       {getdata.length ? (
         <Row style={{ display: 'flex', flexDirection: 'column' }}>
           {getdata?.map((e) => {
-            console.log(e)
             return (
               <Row style={{ backgroundColor: 'white', border: '1px solid red' }}>
                 <Col xs={10} sm={10} md={10} lg={10} xl={10} xxl={10} style={{ border: '1px solid red' }}>
@@ -59,19 +47,20 @@ console.log(price)
 
                     <Typography.Paragraph>quantity:   {e?.qnty
                     }
+                      <p>Total {total}</p>
                     </Typography.Paragraph>
                     <button onClick={() => navigate(`/cart/${e?.id}`)}>...</button>
                     <button onClick={() => del(e?.id)}>delete</button>
                   </Row>
 
-                  
+
 
                 </Col>
-               
+
               </Row>
             );
           })}
-           <p>Total{price}</p>
+
         </Row>
       ) :
 
