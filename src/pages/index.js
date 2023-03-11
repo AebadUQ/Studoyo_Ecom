@@ -94,7 +94,10 @@ const HorizontalMenu = () => {
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
                       <Button
-                        onClick={() => del(e?.id)}
+                        onClick={() => {
+                          navigate(`/`)
+                          del(e?.id)
+                        }}
                         icon={
                           <DeleteFilled
                             style={{ fontSize: 22, color: "red" }}
@@ -137,8 +140,9 @@ const HorizontalMenu = () => {
           color: "#8538ed",
         }}
       >
-        <Menu.Item key="home">
+        <Menu.Item key="home" onC>
           <LogoName
+          onClick={()=>navigate('/')}
             style={{
               background: "linear-gradient(to right, #8538ed, #00c9ff)",
               WebkitBackgroundClip: "text",

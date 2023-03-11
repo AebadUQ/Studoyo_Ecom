@@ -25,13 +25,8 @@ const Description = styled.p`
   color: ${Colors?.black};
   font-weight: 400;
   font-size: 22px;
-  /* text-align:right; */
 `;
-const QuanHeading = styled.p`
-  color: ${Colors?.black};
-  font-weight: 500;
-  font-size: 18px;
-`;
+
 const Content = styled.div`
   padding-inline: 3rem;
   padding-top: 3rem;
