@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Typography, Image, Button,Divider } from "antd";
+import { Row, Col, Image, Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router";
 import { DELETE, DECQUANTITY, INCQUANTITY } from "../../redux/actions/action";
@@ -69,7 +69,7 @@ const CardsDetails = () => {
       {data?.map((ele) => {
         return (
           <Row justify={"center"} style={{ height: "90vh" }} align="middle">
-            <Col xs={20} sm={20} md={20} lg={20} xl={20} xxl={20}>
+            <Col xs={20} sm={20} md={22} lg={22} xl={20} xxl={14}>
               <Row
                 style={{
                   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
@@ -79,24 +79,10 @@ const CardsDetails = () => {
                   marginBottom: "16px",
                 }}
               >
-                <Col
-                  xs={24}
-                  sm={24}
-                  md={12}
-                  lg={10}
-                  xl={8}
-                  xxl={8}
-                  style={{
-                    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
-                    borderRadius: "8px",
-                    padding: "16px",
-                    background: "#fff",
-                    marginBottom: "16px",
-                  }}
-                >
-                  <Image src={ele?.imgdata} width={"100%"} height={400} />
+                <Col xs={24} sm={24} md={12} lg={10} xl={8} xxl={6} >
+                  <Image src={ele?.imgdata} width={"100%"} height={'100%'} />
                 </Col>
-                <Col xs={24} sm={24} md={12} lg={14} xl={16} xxl={16}>
+                <Col xs={24} sm={24} md={12} lg={14} xl={16} xxl={18}>
                   <Content>
                     <Row>
                       <Col xs={21} sm={21} md={21} lg={21} xl={21} xxl={21}>
@@ -113,7 +99,7 @@ const CardsDetails = () => {
                           paddingTop: "0.5rem",
                         }}
                       >
-                        <Subheading>${ele?.price}</Subheading>
+                        <Subheading>${ele?.price * ele?.qnty}</Subheading>
                       </Col>
                     </Row>
                     <Row>
@@ -125,7 +111,6 @@ const CardsDetails = () => {
                       </p>
                     </Row>
 
-                    <Description>{ele?.description}</Description>
                    
                     <Row>
                       <Button
@@ -148,6 +133,8 @@ const CardsDetails = () => {
                         style={{ border: "0px" }}
                       />
                     </Row>
+                    <Description>{ele?.description}</Description>
+
                     <Row>
                       <Col
                         xs={12}
@@ -168,11 +155,13 @@ const CardsDetails = () => {
                     </Row>
 
                     <Row justify={"start"}>
-                      <Col xs={3} sm={3} md={3} lg={3} xl={3} xxll={3}>
+                      <Col xs={8} sm={6} md={8} lg={4} xl={3} xxll={3} >
                         {/* <QuanHeading>
                           Total: {ele?.price * ele?.qnty}
                         </QuanHeading> */}
                         <Row justify={"space-between"}>
+                        
+                         
                           <Image
                             src={subIcon}
                             onClick={
@@ -180,18 +169,19 @@ const CardsDetails = () => {
                                 ? () => del(ele?.id)
                                 : () => quantityDec(ele)
                             }
-                            width={20}
-                            height={20}
+                            width={24}
+                            height={24}
                             preview={false}
                           />
-                          <p>{ele?.qnty}</p>
+                          <Subheading>{ele?.qnty}</Subheading>
                           <Image
                             src={addIcon}
                             onClick={() => quantityInc(ele)}
-                            width={20}
-                            height={20}
+                            width={24}
+                            height={24}
                             preview={false}
                           />
+                          
                         </Row>
                       </Col>
                     </Row>
