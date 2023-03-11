@@ -1,6 +1,5 @@
 import {
   Menu,
-  Dropdown,
   Badge,
   Drawer,
   Typography,
@@ -9,15 +8,12 @@ import {
   Divider,
 } from "antd";
 import {
-  HomeOutlined,
-  UserOutlined,
-  SettingOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { DeleteFilled } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Row, Col } from "antd";
 import { Colors } from "../constant/theme";
 import { DELETE } from "../redux/actions/action";
@@ -41,20 +37,17 @@ const LogoName = styled.p`
   margin: 0;
   padding: 0;
 `;
-const { Title, Paragraph, Text } = Typography;
+const {Paragraph } = Typography;
 
 const HorizontalMenu = () => {
   const navigate = useNavigate();
-
   const getdata = useSelector((state) => state?.cardReducer?.carts);
   const total = useSelector((state) => state.cardReducer.total);
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
-
   const del = (id) => {
     dispatch(DELETE(id));
   };
-
   const cartMenu = (
     <>
       {getdata.length ? (

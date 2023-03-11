@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {  Card, Typography, Row, Divider, Skeleton,Image ,Button} from "antd";
-
 import { Colors } from "../../constant/theme";
 import { useDispatch } from "react-redux";
 import { ADD } from "../../redux/actions/action";
